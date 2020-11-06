@@ -4,8 +4,8 @@ function hypers([...args]) {
   let bottomString = "\n";
   for (let i = 0; i < string.length; i++) {
     if (!/[a-zA-Z]/.test(string.charAt(i))) {
-      topString += "   ";
-      bottomString += "   ";
+      topString += "\t";
+      bottomString += "\t";
     } else {
       topString += " :regional_indicator_" + string.charAt(i) + ": ";
       bottomString += " :RGRhype: ";
