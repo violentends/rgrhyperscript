@@ -4,8 +4,8 @@ function hypers([...args]) {
   let bottomString = "\n";
   for (let i = 0; i < string.length; i++) {
     if (!/[a-zA-Z]/.test(string.charAt(i))) {
-      topString += " ";
-      bottomString += " ";
+      topString += "   ";
+      bottomString += "   ";
     } else {
       topString += " :regional_indicator_" + string.charAt(i) + ": ";
       bottomString += " :RGRhype: ";
@@ -15,8 +15,8 @@ function hypers([...args]) {
 }
 
 let $ = document.querySelector.bind(document);
-function getFormValues(formEl){
-   return formEl.$$('input').map( el => el.value);
+function getFormValues(formEl) {
+  return formEl.$$("input").map((el) => el.value);
 }
 HTMLElement.prototype.$$ = function (sel) {
   return [...this.querySelectorAll(sel)];
