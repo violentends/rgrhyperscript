@@ -1,6 +1,6 @@
 function hypers([...args]) {
   let string = args.join(" ");
-  let topString = " \r\n";
+  let topString = " \r\n \r\n";
   let bottomString = "\r\n";
   for (let i = 0; i < string.length; i++) {
     if (!/[a-zA-Z]/.test(string.charAt(i))) {
@@ -17,10 +17,10 @@ function hypers([...args]) {
 
 function copyToClipboard(copyText) {
   /* Select the text field */
-  let temp = document.createElement('textarea');
+  let temp = document.createElement("textarea");
   let text = copyText.innerText;
   document.body.append(temp);
-   temp.textContent = text;
+  temp.textContent = text;
   temp.select();
   temp.setSelectionRange(0, 99999); /*For mobile devices*/
 
