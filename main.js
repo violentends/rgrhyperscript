@@ -1,11 +1,24 @@
 function hypers([...args]) {
   let string = args.join(" ");
+  let lens = string.split(/[/\s]/).map((s) => s.length);
+  console.log(lens);
   let topString = ":forbidden_space:\r\n";
   let bottomString = "";
+  let word = 0;
+  let lineLen = lens[word];
   for (let i = 0; i < string.length; i++) {
-    if (/[/]/.test(string.charAt(i))) {
-      topString += "\r\n" + bottomString + "\r\n";
-      bottomString = "";
+    if (/[ ]/.test(string.charAt(i))) {
+      console.log(lineLen);
+      if (lineLen + lens[word + 1] >= 8) {
+        topString += "\r\n" + bottomString + "\r\n";
+        bottomString = "";
+        lineLen = 0;
+      } else {
+        topString += "\t";
+        bottomString += "\t";
+      }
+      lineLen += lens[word];
+      word++;
     } else if (!/[a-zA-Z]/.test(string.charAt(i))) {
       topString += "\t";
       bottomString += "\t";
