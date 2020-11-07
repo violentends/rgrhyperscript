@@ -1,9 +1,12 @@
 function hypers([...args]) {
   let string = args.join(" ");
   let topString = ":forbidden_space:\r\n";
-  let bottomString = "\r\n";
+  let bottomString = "";
   for (let i = 0; i < string.length; i++) {
-    if (!/[a-zA-Z]/.test(string.charAt(i))) {
+    if (/[/]/.test(string.charAt(i))) {
+      topString += "\r\n" + bottomString + "\r\n";
+      bottomString = "";
+    } else if (!/[a-zA-Z]/.test(string.charAt(i))) {
       topString += "\t";
       bottomString += "\t";
     } else {
@@ -12,7 +15,7 @@ function hypers([...args]) {
       bottomString += " :RGRhype: ";
     }
   }
-  return topString + bottomString;
+  return topString + "\r\n" + bottomString;
 }
 
 function copyToClipboard(copyText) {
