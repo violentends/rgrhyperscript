@@ -1,6 +1,6 @@
 function hypers([...args]) {
   let string = args.join(" ");
-  let topString = " \r\n:forbidden_space:";
+  let topString = ":forbidden_space:\r\n";
   let bottomString = "\r\n";
   for (let i = 0; i < string.length; i++) {
     if (!/[a-zA-Z]/.test(string.charAt(i))) {
